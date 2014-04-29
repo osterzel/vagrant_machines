@@ -9,7 +9,6 @@ These are all machines useful for development purposes
 - Web Server
 - Python development
 - Jenkins
-- Transmission
 - PuppetMaster
 - Mongodb
 - Subversion
