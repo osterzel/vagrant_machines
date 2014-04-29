@@ -1,0 +1,6 @@
+Details about this vagrant box
+
+Machine default IP: 192.168.0.71
+Jenkins service: http://localhost:8080/
+		 http://192.168.0.71:8080/
+

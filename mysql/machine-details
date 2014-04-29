@@ -1,0 +1,11 @@
+Details about this vagrant box
+
+Machine default IP: 192.168.0.45
+PHPMyadmin: http://192.168.0.45/phpmyadmin/
+            http://localhost:3307/phpmyadmin/
+
+Mysql host port: 3306
+Default access details
+Username: root
+Password: dev
+

@@ -1,0 +1,32 @@
+{
+  "description": "Puppet module for configuring Apache CouchDB",
+  "author": "Benjamin Dos Santos",
+  "checksums": {
+    "manifests/init.pp": "e4e68cb922390de5f5202a628dd5126a",
+    "Modulefile": "cbd2b8a08507cb25e2dd80a3aff36d61",
+    "manifests/install.pp": "4378a71ccda0229b2047c918b73e46c0",
+    "templates/usr/local/etc/couchdb/local.ini.erb": "90c2a608bb7cf18acc947c9d19b9a3dc",
+    "templates/etc/security/limits.d/100-couchdb.conf.erb": "958eff27843a868561f7813dfd7bc023",
+    "manifests/ssl.pp": "aa5bced9dff3b7a2a7cf25028aa41536",
+    "templates/usr/local/etc/logrotate.d/couchdb.erb": "76488ce0de3d6f0c1d1c8af1de5609b6",
+    "Vagrantfile": "3c74acaa8b73a15cb924822ad266bc6a",
+    "README.md": "b748cc58c909cc674ec07784f99f0460",
+    "manifests/site.pp": "99d6d1440b6691487b27f14493c5b773",
+    "manifests/service.pp": "988c4d62ddbb3a7a5dc6b08b60d7f73a",
+    "manifests/package.pp": "318f325447aa9e4b4fa1a6755b4aa018",
+    "templates/etc/ld.so.conf.d/xulrunner.conf.erb": "96412ae03b08aaa6106353f1cd88e5dd",
+    "manifests/conf.pp": "b82519f9dcafa77c510ecafd49c170a5"
+  },
+  "source": "UNKNOWN",
+  "types": [
+
+  ],
+  "project_page": "https://github.com/bdossantos/puppet-module-couchdb",
+  "version": "0.0.2",
+  "name": "benjamin-couchdb",
+  "dependencies": [
+
+  ],
+  "summary": "UNKNOWN",
+  "license": "Apache License, Version 2.0"
+}

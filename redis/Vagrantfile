@@ -1,0 +1,33 @@
+box        = 'precise64'
+url        = 'https://cloud-images.ubuntu.com/vagrant/precise/current/precise-server-cloudimg-amd64-vagrant-disk1.box'
+hostname   = 'redis'
+domain     = 'testing.com'
+ip_address = '192.168.0.44'
+ram        = '256'
+
+Vagrant.configure("2") do |config|
+  config.vm.box = box
+  config.vm.box_url = url
+  config.vm.hostname = hostname + '.' + domain
+  config.vm.network "private_network", ip: ip_address
+  config.vm.network "forwarded_port", guest: 6379, host: 6379
+  config.vm.network "forwarded_port", guest: 8081, host: 6380
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize [
+      'modifyvm', :id,
+      '--name', hostname,
+      '--memory', ram
+    ]
+  end
+
+  config.vm.provision :shell, :inline => "[ -f /tmp/updated ] || apt-get update && touch /tmp/updated"
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = 'puppet/manifests'
+    puppet.manifest_file = 'site.pp'
+    puppet.module_path = 'puppet/modules'
+    puppet.options = "--verbose"
+  end
+
+end
+

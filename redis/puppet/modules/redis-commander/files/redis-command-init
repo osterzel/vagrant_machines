@@ -1,0 +1,7 @@
+description "Start redis-commander"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+respawn
+
+exec redis-commander

@@ -1,0 +1,6 @@
+Details about this vagrant box
+
+Machine default IP: 192.168.0.43
+CouchDB Admin: http://localhost:5984/_utils/
+               http://192.168.0.43:5984/_utils/
+

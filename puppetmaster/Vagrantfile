@@ -1,0 +1,34 @@
+box         = 'trusty64'
+url         = 'https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box'
+hostname    = 'puppetmaster'
+domain      = 'testing.com'
+ip_address  = '192.168.0.11'
+ram         = '512'
+
+Vagrant.configure("2") do |config|
+  config.vm.box = box
+  config.vm.box_url = url
+  config.vm.hostname = hostname + '.' + domain
+  config.vm.network "private_network", ip: ip_address
+  config.vm.network "forwarded_port", guest: 8140, host: 8140
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize [
+      'modifyvm', :id,
+      '--name', hostname,
+      '--memory', ram
+    ]
+  end
+
+  config.vm.provision :shell, :inline => "[ -f /tmp/updated ] || apt-get update && touch /tmp/updated"
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = 'puppet/manifests'
+    puppet.manifest_file = 'site.pp'
+    puppet.module_path = 'puppet/modules'
+    puppet.options = "--verbose"
+  end
+
+  config.vm.provision :shell, :inline => "[ -f /vagrant/machine-details ] && cat /vagrant/machine-details"
+
+end
+
